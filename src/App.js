@@ -19,11 +19,11 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import axios from "axios";
 import TextField from '@mui/material/TextField';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+// import CardMedia from '@mui/material/CardMedia';
+// import Typography from '@mui/material/Typography';
+// import { CardActionArea } from '@mui/material';
 
 
 let searchParams = document.getElementById("searchParams");
@@ -36,7 +36,7 @@ function App() {
                 method: "get",
                 url: `http://api.serpstack.com/search?access_key=dd8fb941fba260e6119e25123ec3bcd6&query=${search}&top_stories`,
             });
-            console.log(response.data.top_stories)
+            console.log(response)
             return response.data.top_stories;
         } catch (error) {
             console.error(error);
@@ -84,29 +84,8 @@ function App() {
         <>
 
             <ArrowLeftIcon fontSize="large" />
-            <TextField onChange={(e) => { setSearch(e.value) }} id="searchParams" label="Enter A location" variant="outlined" sx={{ width: '100%' }} />
+            <TextField onChange={(e) => { setSearch(e.value) }} id="searchParams" label="Enter A location" variant="outlined" sx={{ width: '100%' }} value={search} />
             <Box sx={{ width: '100%' }}>
-
-
-                <Card sx={{ maxWidth: 345 }}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="/static/images/cards/contemplative-reptile.jpg"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000
-                                species, ranging across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
 
 
                 {/* <ImageList sx={{ width: "100%", height: 450 }} cols={3} rowHeight={164}>
